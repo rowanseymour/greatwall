@@ -9,19 +9,19 @@ block content
           span(class="icon-bar")
           span(class="icon-bar")
           span(class="icon-bar")
-        a(class="navbar-brand", href="#") kLab Lunches
+        a(class="navbar-brand", href="#") Great Wall
       div(class="navbar-collapse collapse")
         ul(class="nav navbar-nav")
           li(class="active")
-            a(href="#greatwall") Great Wall
+            a(href="#ordering") Ordering
 
-  div(class="container", ng-controller="GreatWall")
+  div(class="container", ng-controller="OrderGenerator")
     div(class="page-header")
-      h1(id="greatwall") Great Wall Chinese
+      h1(id="ordering") Order Generator
     p(class="lead") Less time spent ordering means more time drinking and discussing the price of bitcoin.
 
     input(type="number", class="form-control input-lg", placeholder="Enter number of people", ng-model="people", ng-change="refresh()")
-    div(class="alert alert-danger", ng-if="error") {{ error }}
+    div(class="alert alert-danger", style="margin-top: 10px", ng-if="error") {{ error }}
     br
     ul(class="list-group")
       li(class="list-group-item", ng-repeat="ordered in items")
@@ -32,3 +32,7 @@ block content
 
     div(align="center")
       button(type="submit", class="btn btn-primary", ng-click="refresh()", ng-if="people > 0") Mmm.. try again
+
+    div(class="panel panel-default", style="margin-top: 10px")
+      div(class="panel-body").
+        If you feel like there's not enough chilli chicken, submit a pull request <a href="https://github.com/rowanseymour/greatwall">here</a>.
