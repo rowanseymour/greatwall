@@ -1,0 +1,8 @@
+{
+	"name": "klablunches",
+
+	"dependencies": {
+		"angular": "*",
+		"bootstrap": "*"
+	}
+}
