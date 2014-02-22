@@ -2,22 +2,9 @@ extends layout
 
 block content
 
-  div(class="navbar navbar-default navbar-static-top")
-    div(class="container")
-      div(class="navbar-header")
-        button(type="button", class="navbar-toggle", data-toggle="collapse", data-target=".navbar-collapse")
-          span(class="icon-bar")
-          span(class="icon-bar")
-          span(class="icon-bar")
-        a(class="navbar-brand", href="#") Great Wall
-      div(class="navbar-collapse collapse")
-        ul(class="nav navbar-nav")
-          li(class="active")
-            a(href="#ordering") Ordering
-
   div(class="container", ng-controller="OrderGenerator")
-    div(class="page-header")
-      h1(id="ordering") Order Generator
+    div(class="page-header gw-page-header")
+      h1(id="ordering") Great Wall Order Generation
     p(class="lead") Less time spent ordering means more time drinking and discussing the price of bitcoin.
 
     input(type="number", class="form-control input-lg", placeholder="Enter number of people", ng-model="people", ng-change="refresh()")
@@ -38,4 +25,4 @@ block content
       div(class="panel-body").
         If you feel like there's not enough chilli chicken, submit a pull request <a href="https://github.com/rowanseymour/greatwall">here</a>.
         Page built with <a href="http://nodejs.org">Node</a>, <a href="http://expressjs.com/">Express</a>, <a href="http://jade-lang.com/">Jade</a>,
-        <a href="http://bower.io">Bower</a> and <a href="http://angularjs.org">Angular</a>.
+        <a href="http://bower.io">Bower</a> and <a href="http://angularjs.org">Angular</a>. Such Javascript.
