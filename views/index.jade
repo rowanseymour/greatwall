@@ -21,9 +21,10 @@ block content
     p(class="lead") Less time spent ordering means more time drinking and discussing the price of bitcoin.
 
     input(type="number", class="form-control input-lg", placeholder="Enter number of people", ng-model="people", ng-change="refresh()")
-    div(class="alert alert-danger", style="margin-top: 10px", ng-if="error") {{ error }}
-    br
-    ul(class="list-group")
+
+    div(class="alert alert-danger", style="margin-top: 10px", ng-if="error", ng-cloak) {{ error }}
+
+    ul(class="list-group", style="margin-top: 10px")
       li(class="list-group-item", ng-repeat="ordered in items")
         b(style="padding-right: 10px") {{ ordered.item.code }}
         span {{ ordered.item.name }}
@@ -31,7 +32,7 @@ block content
           span(class="label label-default") {{ ordered.quantity }} {{ ordered.size }}
 
     div(align="center")
-      button(type="submit", class="btn btn-primary", ng-click="refresh()", ng-disabled="loading", ng-if="people > 0") Mmm.. try again
+      button(type="submit", class="btn btn-primary", ng-click="refresh()", ng-disabled="loading", ng-if="people > 0", ng-cloak) Mmm.. try again
 
     div(class="panel panel-default", style="margin-top: 10px")
       div(class="panel-body").
