@@ -31,7 +31,7 @@ block content
           span(class="label label-default") {{ ordered.quantity }} {{ ordered.size }}
 
     div(align="center")
-      button(type="submit", class="btn btn-primary", ng-click="refresh()", ng-if="people > 0") Mmm.. try again
+      button(type="submit", class="btn btn-primary", ng-click="refresh()", ng-disabled="loading", ng-if="people > 0") Mmm.. try again
 
     div(class="panel panel-default", style="margin-top: 10px")
       div(class="panel-body").
