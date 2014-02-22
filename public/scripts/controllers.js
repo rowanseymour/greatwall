@@ -27,18 +27,21 @@ greatwall.controller('OrderGenerator', ['$scope', '$http', function($scope, $htt
    * Refreshes the order
    */
   $scope.refresh = function() {
+    $scope.items = [];
     $scope.error = '';
-    $scope.loading = true;
 
-    $http.get('/order', { params: { people: $scope.people } })
-        .success(function(data) {
-          $scope.items = data;
-          $scope.loading = false;
-        })
-        .error(function(data) {
-          $scope.error = data.message;
-          $scope.items = [];
-          $scope.loading = false;
-        });
+    if ($scope.people) {
+      $scope.loading = true;
+
+      $http.get('/order', { params: { people: $scope.people } })
+          .success(function(data) {
+            $scope.items = data;
+            $scope.loading = false;
+          })
+          .error(function(data) {
+            $scope.error = data.message;
+            $scope.loading = false;
+          });
+    }
   };
 }]);
