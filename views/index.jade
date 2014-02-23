@@ -7,19 +7,19 @@ block content
       h1(id="ordering") Great Wall Order Generation
     p(class="lead") Less time spent ordering means more time drinking and discussing the price of bitcoin.
 
-    input(type="number", class="form-control input-lg", placeholder="Enter number of people", ng-model="people", ng-change="refresh()")
+    input(type="number", placeholder="Enter number of people", ng-model="people", ng-change="refresh()", class="form-control input-lg")
 
-    div(class="alert alert-danger", style="margin-top: 10px", ng-if="error", ng-cloak) {{ error }}
+    div(class="alert alert-danger", ng-if="error", ng-bind="error", ng-cloak, style="margin-top: 10px")
 
     ul(class="list-group", style="margin-top: 10px")
       li(class="list-group-item", ng-repeat="ordered in items")
-        b(style="padding-right: 10px") {{ ordered.item.code }}
-        span {{ ordered.item.name }}
+        b(ng-bind="ordered.item.code", style="padding-right: 10px")
+        span(ng-bind="ordered.item.name")
         div(style="float: right")
           span(class="label label-default") {{ ordered.quantity }} {{ ordered.size }}
 
     div(align="center")
-      button(type="submit", class="btn btn-primary", ng-click="refresh()", ng-disabled="loading", ng-if="people > 0", ng-cloak) Mmm.. try again
+      button(type="submit", ng-click="refresh()", ng-disabled="loading", ng-if="people > 0", ng-cloak, class="btn btn-primary") Mmm.. try again
 
     div(class="panel panel-default", style="margin-top: 10px")
       div(class="panel-body").

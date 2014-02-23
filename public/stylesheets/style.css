@@ -6,3 +6,10 @@ body {
 .gw-page-header {
 	border-bottom: 1px solid #beaf86;
 }
+
+/**
+ * Prevent cloaked elements from appearing: http://docs.angularjs.org/api/ng/directive/ngCloak
+ */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+	display: none !important;
+}
