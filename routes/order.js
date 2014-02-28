@@ -111,7 +111,7 @@ function randomInt(min, max) {
  */
 function smsify(order) {
   var simpleOrders = _.map(order, function(o) {
-    return o.item.code + (o.size ? (" [" + o.size + "]") : "") + " => " + o.quantity;
+    return o.item.name + (o.size ? (" [" + o.size + "]") : "") + " => " + o.quantity;
   });
   return simpleOrders.join("\n");
 }
