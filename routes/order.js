@@ -128,8 +128,14 @@ function errorResponse(res, message) {
  * GET generate order
  */
 exports.generate = function(req, res, next, menu) {
-  var numPeople = parseInt(req.param('people'));
   var format = req.param('format');
+  var numPeople = null;
+  
+  if (format == 'sms'){
+    numPeople = parseInt(req.param('people').split(" ")[1]);
+  } else {
+    numPeople = parseInt(req.param('people'));
+  }
 
   if (!numPeople || numPeople <= 0) {
     errorResponse(res, "Number of people must be a positive integer");
