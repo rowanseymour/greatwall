@@ -111,7 +111,7 @@ function randomInt(min, max) {
  */
 function smsify(order) {
   var simpleOrders = _.map(order, function(o) {
-    return o.item.code + (o.size ? (" [" + o.size + "]") : "") + " => " + o.quantity;
+    return o.item.name + (o.size ? (" [" + o.size + "]") : "") + " => " + o.quantity;
   });
   return simpleOrders.join("\n");
 }
@@ -128,8 +128,14 @@ function errorResponse(res, message) {
  * GET generate order
  */
 exports.generate = function(req, res, next, menu) {
-  var numPeople = parseInt(req.param('people'));
   var format = req.param('format');
+  var numPeople = null;
+  
+  if (format == 'sms'){
+    numPeople = parseInt(req.param('people').split(" ")[1]);
+  } else {
+    numPeople = parseInt(req.param('people'));
+  }
 
   if (!numPeople || numPeople <= 0) {
     errorResponse(res, "Number of people must be a positive integer");
