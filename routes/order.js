@@ -18,8 +18,8 @@
 var _ = require('underscore');
 
 var MAX_PEOPLE = 1000000;
-var BIG_SOUP_FEEDS = 4;
-var MED_SOUP_FEEDS = 2;
+var BIG_SOUP_FEEDS = 6;
+var MED_SOUP_FEEDS = 3;
 
 /**
  * Generates an order of lunch
